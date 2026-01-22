@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://runeapps.org/nis/nis.css"
+    />
+    <script src="https://www.unpkg.com/alt1/dist/base/index.js"></script>
+    <script src="https://www.unpkg.com/alt1/dist/ocr/index.js"></script>
+    <script src="https://www.unpkg.com/alt1/dist/chatbox/index.js"></script>
+  </head>
+  <style>
+    button {
+      background: linear-gradient(#2b2b2b, #1a1a1a);
+      border: 1px solid #5a4a2a;
+      color: #ffd700;     
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 1px 2px rgba(0,0,0,0.6);
+      transition: all 0.12s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(#353535, #202020);
+      border-color: #c8a94a;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.12),
+        0 0 6px rgba(255, 215, 0, 0.35);
+    }
+
+    button:active {
+      background: linear-gradient(#181818, #262626);
+      box-shadow:
+        inset 0 2px 4px rgba(0,0,0,0.8);
+      transform: translateY(1px);
+    }
+
+    button.small {
+      font-size: 11px;
+      padding: 4px 8px;
+    }
+
+    button.danger {
+      color: #ffb0b0;
+      border-color: #7a2a2a;
+      animation: dangerPulse 0.8s infinite alternate;
+    }
+
+    @keyframes dangerPulse {
+      from { box-shadow: 0 0 4px rgba(255,80,80,0.4); }
+      to   { box-shadow: 0 0 8px rgba(255,80,80,0.8); }
+    }
+    button.danger:hover {
+      border-color: #ff5555;
+      box-shadow: 0 0 6px rgba(255, 80, 80, 0.4);
+    }
+
+    /* Button groups spacing */
+    button + button {
+      margin-left: 6px;
+    }
+
+    #historyModal {
+      display: none;              /* default closed */
+      position: absolute;         /* more reliable than fixed in Alt1 */
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 99999;
+    }
+
+    #historyModal .modalContent{
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 92%;
+      max-width: 650px;
+      max-height: 80%;
+      overflow: auto;
+      background: #111;
+      color: #ddd;               /* <-- make sure text is visible */
+      border: 1px solid #444;
+      padding: 10px;
+    }
+
+
+    .scanCard{
+      border: 1px solid #333;
+      padding: 8px;
+      margin-bottom: 10px;
+      background: #0b0b0b;
+    }
+
+    .scanCardTop{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 8px;
+    }
+
+    .scanCardTop b { font-size: 12px; }
+    .scanCardTop .actions button { margin-left: 6px; }
+
+    table { width:100%; border-collapse: collapse; font-size: 12px; margin-top: 6px;}
+    th,td { border-bottom: 1px solid #222; padding: 4px 6px; text-align:left; }
+    th { color: #ffd700; }
+
+  </style>
+
+  <body class="nis">
+    <div class="scanCard">
+      <h3>Next research</h3>
+      <div id="researchTimer">—</div>
+        <button id="startTimerBtn">Start 14h 38m timer</button>
+      </div>
+
+      <div>
+        <button id="scanBtn">Scan</button>
+        <button id="historyBtn">View history</button>
+      </div>
+
+      <!-- Always visible -->
+      <div id="averages"></div>
+
+      <!-- History -->
+
+      <!-- Modal -->
+      <div id="historyModal" class="modal hidden">
+        <div class="modalContent">
+          <div class="modalHeader">
+            <h3>Scan history</h3>
+            <button id="closeHistoryBtn">✕</button>
+          </div>
+          <div id="historyList"></div>
+        </div>
+      </div>
+    </body>
+  <script src="scripts/script.js"></script>
+</html>
