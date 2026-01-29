@@ -56,8 +56,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "venator_light_crossbow": {
       "id": "venator_light_crossbow",
@@ -83,8 +82,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "centurions_seal": {
       "id": "centurions_seal",
@@ -131,8 +129,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "legionary_gladius": {
       "id": "legionary_gladius",
@@ -162,8 +159,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "legionary_square_shield": {
       "id": "legionary_square_shield",
@@ -193,8 +189,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "zaros_effigy": {
       "id": "zaros_effigy",
@@ -224,8 +219,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "zarosian_training_dummy": {
       "id": "zarosian_training_dummy",
@@ -251,8 +245,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "hookah_pipe": {
       "id": "hookah_pipe",
@@ -282,8 +275,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 14
+      ]
     },
     "opulent_wine_goblet": {
       "id": "opulent_wine_goblet",
@@ -309,8 +301,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 13
+      ]
     },
     "crest_of_dagon": {
       "id": "crest_of_dagon",
@@ -336,8 +327,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "disorder_painting": {
       "id": "disorder_painting",
@@ -371,8 +361,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 17
+      ]
     },
     "legatus_maximus_figurine": {
       "id": "legatus_maximus_figurine",
@@ -402,8 +391,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 19
+      ]
     },
     "solem_in_umbra_painting": {
       "id": "solem_in_umbra_painting",
@@ -433,8 +421,7 @@
           "collector": "Museum",
           "collection": "Zarosian I"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "imp_mask": {
       "id": "imp_mask",
@@ -464,8 +451,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 20
+      ]
     },
     "lesser_demon_mask": {
       "id": "lesser_demon_mask",
@@ -499,8 +485,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 32
+      ]
     },
     "greater_demon_mask": {
       "id": "greater_demon_mask",
@@ -534,8 +519,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "teleportation_crystal": {
       "id": "teleportation_crystal",
@@ -582,8 +566,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "ritual_dagger": {
       "id": "ritual_dagger",
@@ -609,8 +592,7 @@
           "collector": "Museum",
           "collection": "Zamorakian I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "frying_pan": {
       "id": "frying_pan",
@@ -636,8 +618,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "hallowed_lantern": {
       "id": "hallowed_lantern",
@@ -663,8 +644,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "branding_iron": {
       "id": "branding_iron",
@@ -694,8 +674,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 34
+      ]
     },
     "manacles": {
       "id": "manacles",
@@ -725,8 +704,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 32
+      ]
     },
     "ancient_timepiece": {
       "id": "ancient_timepiece",
@@ -756,8 +734,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "legatus_pendant": {
       "id": "legatus_pendant",
@@ -787,8 +764,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "ceremonial_unicorn_ornament": {
       "id": "ceremonial_unicorn_ornament",
@@ -814,8 +790,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "ceremonial_unicorn_saddle": {
       "id": "ceremonial_unicorn_saddle",
@@ -841,8 +816,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 32
+      ]
     },
     "dragonkin_device": {
       "id": "dragonkin_device",
@@ -859,8 +833,7 @@
       "rewards": {
         "chronotes": null
       },
-      "collections": [],
-      "icon_width": 22
+      "collections": []
     },
     "dragonkin_tablet": {
       "id": "dragonkin_tablet",
@@ -877,8 +850,7 @@
       "rewards": {
         "chronotes": null
       },
-      "collections": [],
-      "icon_width": 23
+      "collections": []
     },
     "tetracompass_unpowered": {
       "id": "tetracompass_unpowered",
@@ -916,8 +888,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "everlight_trumpet": {
       "id": "everlight_trumpet",
@@ -943,8 +914,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "everlight_violin": {
       "id": "everlight_violin",
@@ -974,8 +944,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "folded_arm_figurine_female": {
       "id": "folded_arm_figurine_female",
@@ -1001,8 +970,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "folded_arm_figurine_male": {
       "id": "folded_arm_figurine_male",
@@ -1028,8 +996,7 @@
           "collector": "Museum",
           "collection": "Saradominist I"
         }
-      ],
-      "icon_width": 20
+      ]
     },
     "incite_fear_spell_scroll": {
       "id": "incite_fear_spell_scroll",
@@ -1059,8 +1026,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "pontifex_signet_ring": {
       "id": "pontifex_signet_ring",
@@ -1090,8 +1056,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "apex_cap": {
       "id": "apex_cap",
@@ -1121,8 +1086,7 @@
           "collector": "Museum",
           "collection": "Zarosian V"
         }
-      ],
-      "icon_width": 19
+      ]
     },
     "curse_tablet": {
       "id": "curse_tablet",
@@ -1156,8 +1120,7 @@
           "collector": "Museum",
           "collection": "Zarosian V"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "funerary_urn_of_shadow": {
       "id": "funerary_urn_of_shadow",
@@ -1187,8 +1150,7 @@
           "collector": "Museum",
           "collection": "Zarosian V"
         }
-      ],
-      "icon_width": 14
+      ]
     },
     "dominion_discus": {
       "id": "dominion_discus",
@@ -1214,8 +1176,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "dominion_javelin": {
       "id": "dominion_javelin",
@@ -1241,8 +1202,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "dominion_pelte_shield": {
       "id": "dominion_pelte_shield",
@@ -1268,8 +1228,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "infula_robes": {
       "id": "infula_robes",
@@ -1303,8 +1262,7 @@
           "collector": "Museum",
           "collection": "Zarosian V"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "funerary_urn_of_smoke": {
       "id": "funerary_urn_of_smoke",
@@ -1334,8 +1292,7 @@
           "collector": "Museum",
           "collection": "Zarosian V"
         }
-      ],
-      "icon_width": 20
+      ]
     },
     "hand_of_the_ancients": {
       "id": "hand_of_the_ancients",
@@ -1369,8 +1326,7 @@
           "collector": "Museum",
           "collection": "Zarosian V"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "decorative_amphora": {
       "id": "decorative_amphora",
@@ -1400,8 +1356,7 @@
           "collector": "Museum",
           "collection": "Zarosian VI"
         }
-      ],
-      "icon_width": 19
+      ]
     },
     "funerary_urn_of_ice": {
       "id": "funerary_urn_of_ice",
@@ -1431,8 +1386,7 @@
           "collector": "Museum",
           "collection": "Zarosian VI"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "loarnab_rod": {
       "id": "loarnab_rod",
@@ -1462,8 +1416,7 @@
           "collector": "Museum",
           "collection": "Zarosian VI"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "inquisitors_ceremonial_armour": {
       "id": "inquisitors_ceremonial_armour",
@@ -1595,8 +1548,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "lust_metal_sculpture": {
       "id": "lust_metal_sculpture",
@@ -1626,8 +1578,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "gladiator_helmet": {
       "id": "gladiator_helmet",
@@ -1657,8 +1608,7 @@
           "collector": "Museum",
           "collection": "Zarosian VII"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "gladiator_sword": {
       "id": "gladiator_sword",
@@ -1688,8 +1638,7 @@
           "collector": "Museum",
           "collection": "Zarosian VII"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "funerary_urn_of_blood": {
       "id": "funerary_urn_of_blood",
@@ -1719,8 +1668,7 @@
           "collector": "Museum",
           "collection": "Zarosian VII"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "funerary_urn_of_miasma": {
       "id": "funerary_urn_of_miasma",
@@ -1750,8 +1698,7 @@
           "collector": "Museum",
           "collection": "Zarosian VII"
         }
-      ],
-      "icon_width": 20
+      ]
     },
     "model_chariot": {
       "id": "model_chariot",
@@ -1785,8 +1732,7 @@
           "collector": "Museum",
           "collection": "Zarosian VII"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "the_serpents_fall_carving": {
       "id": "the_serpents_fall_carving",
@@ -1846,8 +1792,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "spiked_dog_collar": {
       "id": "spiked_dog_collar",
@@ -1877,8 +1822,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "bronze_dominion_medal": {
       "id": "bronze_dominion_medal",
@@ -1904,8 +1848,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "silver_dominion_medal": {
       "id": "silver_dominion_medal",
@@ -1931,8 +1874,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "dominion_torch": {
       "id": "dominion_torch",
@@ -1966,8 +1908,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "ikovian_gerege": {
       "id": "ikovian_gerege",
@@ -1993,8 +1934,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "toy_glider": {
       "id": "toy_glider",
@@ -2020,8 +1960,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "toy_war_golem": {
       "id": "toy_war_golem",
@@ -2047,8 +1986,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "ceremonial_dragonkin_device": {
       "id": "ceremonial_dragonkin_device",
@@ -2065,8 +2003,7 @@
       "rewards": {
         "chronotes": 602
       },
-      "collections": [],
-      "icon_width": 22
+      "collections": []
     },
     "decorative_vase": {
       "id": "decorative_vase",
@@ -2092,8 +2029,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 18
+      ]
     },
     "kantharos_cup": {
       "id": "kantharos_cup",
@@ -2119,8 +2055,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "patera_bowl": {
       "id": "patera_bowl",
@@ -2146,8 +2081,7 @@
           "collector": "Museum",
           "collection": "Saradominist II"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "castle_gatestone": {
       "id": "castle_gatestone",
@@ -2173,8 +2107,7 @@
           "collector": "Museum",
           "collection": "Dragonkin V"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "engraved_ring_of_kinship": {
       "id": "engraved_ring_of_kinship",
@@ -2200,8 +2133,7 @@
           "collector": "Museum",
           "collection": "Dragonkin V"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "ceremonial_mace": {
       "id": "ceremonial_mace",
@@ -2231,8 +2163,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "pontifex_maximus_figurine": {
       "id": "pontifex_maximus_figurine",
@@ -2262,8 +2193,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 15
+      ]
     },
     "consensus_ad_idem_painting": {
       "id": "consensus_ad_idem_painting",
@@ -2293,8 +2223,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "wingsuit_v1": {
       "id": "wingsuit_v1",
@@ -2323,8 +2252,7 @@
       "rewards": {
         "chronotes": null
       },
-      "collections": [],
-      "icon_width": 29
+      "collections": []
     },
     "avian_song_egg_player": {
       "id": "avian_song_egg_player",
@@ -2350,8 +2278,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "keshik_drum": {
       "id": "keshik_drum",
@@ -2385,8 +2312,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "morin_khuur": {
       "id": "morin_khuur",
@@ -2412,8 +2338,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "ekeleshuun_blinder_mask": {
       "id": "ekeleshuun_blinder_mask",
@@ -2443,8 +2368,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "narogoshuun_hob_da_gob_ball": {
       "id": "narogoshuun_hob_da_gob_ball",
@@ -2470,8 +2394,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "rekeshuun_war_tether": {
       "id": "rekeshuun_war_tether",
@@ -2501,8 +2424,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "exploratory_totem": {
       "id": "exploratory_totem",
@@ -2528,8 +2450,7 @@
           "collector": "Museum",
           "collection": "Dragonkin V"
         }
-      ],
-      "icon_width": 19
+      ]
     },
     "excavator_portal_mine": {
       "id": "excavator_portal_mine",
@@ -2555,8 +2476,7 @@
           "collector": "Museum",
           "collection": "Dragonkin V"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "storage_totem": {
       "id": "storage_totem",
@@ -2582,8 +2502,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VI"
         }
-      ],
-      "icon_width": 22
+      ]
     },
     "plant_seed_satchel": {
       "id": "plant_seed_satchel",
@@ -2613,8 +2532,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VI"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "snuff_box": {
       "id": "snuff_box",
@@ -2644,8 +2562,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VI"
         }
-      ],
-      "icon_width": 32
+      ]
     },
     "aviansie_dreamcoat": {
       "id": "aviansie_dreamcoat",
@@ -2675,8 +2592,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 20
+      ]
     },
     "ceremonial_plume": {
       "id": "ceremonial_plume",
@@ -2702,8 +2618,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 21
+      ]
     },
     "peacocking_parasol": {
       "id": "peacocking_parasol",
@@ -2733,8 +2648,7 @@
           "collector": "Museum",
           "collection": "Armadylean I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "ogre_kyzaj_axe": {
       "id": "ogre_kyzaj_axe",
@@ -2764,8 +2678,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "ork_cleaver_sword": {
       "id": "ork_cleaver_sword",
@@ -2791,8 +2704,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "larupia_trophy": {
       "id": "larupia_trophy",
@@ -2822,8 +2734,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "lion_trophy": {
       "id": "lion_trophy",
@@ -2853,8 +2764,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "she_wolf_trophy": {
       "id": "she_wolf_trophy",
@@ -2884,8 +2794,7 @@
           "collector": "Museum",
           "collection": "Zamorakian II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "pontifex_censer": {
       "id": "pontifex_censer",
@@ -2915,8 +2824,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "pontifex_crozier": {
       "id": "pontifex_crozier",
@@ -2946,8 +2854,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "pontifex_mitre": {
       "id": "pontifex_mitre",
@@ -2977,8 +2884,7 @@
           "collector": "Museum",
           "collection": "Zarosian II"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "thorobshuun_battle_standard": {
       "id": "thorobshuun_battle_standard",
@@ -3012,8 +2918,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "yurkolgokh_stink_grenade": {
       "id": "yurkolgokh_stink_grenade",
@@ -3039,8 +2944,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "dominarian_device": {
       "id": "dominarian_device",
@@ -3070,8 +2974,7 @@
           "collector": "Museum",
           "collection": "Saradominist III"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "fishing_trident": {
       "id": "fishing_trident",
@@ -3101,8 +3004,7 @@
           "collector": "Museum",
           "collection": "Saradominist III"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "hawkeye_lens_multi_vision_scope": {
       "id": "hawkeye_lens_multi_vision_scope",
@@ -3128,8 +3030,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "talon_3_razor_wing": {
       "id": "talon_3_razor_wing",
@@ -3155,8 +3056,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "exsanguinate_spell_scroll": {
       "id": "exsanguinate_spell_scroll",
@@ -3182,8 +3082,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "necromantic_focus": {
       "id": "necromantic_focus",
@@ -3213,8 +3112,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "spent_summoning_charm": {
       "id": "spent_summoning_charm",
@@ -3240,8 +3138,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VI"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "friendship_bracelet": {
       "id": "friendship_bracelet",
@@ -3267,8 +3164,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VI"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "homely_totem": {
       "id": "homely_totem",
@@ -3294,8 +3190,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VI"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "high_priest_crozier": {
       "id": "high_priest_crozier",
@@ -3325,8 +3220,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "high_priest_mitre": {
       "id": "high_priest_mitre",
@@ -3356,8 +3250,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 22
+      ]
     },
     "high_priest_orb": {
       "id": "high_priest_orb",
@@ -3387,8 +3280,7 @@
           "collector": "Museum",
           "collection": "Bandosian I"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "torment_metal_sculpture": {
       "id": "torment_metal_sculpture",
@@ -3418,8 +3310,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "pandemonium_tapestry": {
       "id": "pandemonium_tapestry",
@@ -3453,8 +3344,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "ceremonial_dragonkin_tablet": {
       "id": "ceremonial_dragonkin_tablet",
@@ -3471,8 +3361,7 @@
       "rewards": {
         "chronotes": 733
       },
-      "collections": [],
-      "icon_width": 23
+      "collections": []
     },
     "pasaha": {
       "id": "pasaha",
@@ -3498,8 +3387,7 @@
           "collector": "Museum",
           "collection": "Dragonkin I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "ritual_bell": {
       "id": "ritual_bell",
@@ -3525,8 +3413,7 @@
           "collector": "Museum",
           "collection": "Dragonkin I"
         }
-      ],
-      "icon_width": 21
+      ]
     },
     "prototype_gravimeter": {
       "id": "prototype_gravimeter",
@@ -3556,8 +3443,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 18
+      ]
     },
     "songbird_recorder": {
       "id": "songbird_recorder",
@@ -3583,8 +3469,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "amphora": {
       "id": "amphora",
@@ -3610,8 +3495,7 @@
           "collector": "Museum",
           "collection": "Saradominist III"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "rod_of_asclepius": {
       "id": "rod_of_asclepius",
@@ -3641,8 +3525,7 @@
           "collector": "Museum",
           "collection": "Saradominist III"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "zarosian_ewer": {
       "id": "zarosian_ewer",
@@ -3668,8 +3551,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 20
+      ]
     },
     "zarosian_stein": {
       "id": "zarosian_stein",
@@ -3699,8 +3581,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "beastkeeper_helm": {
       "id": "beastkeeper_helm",
@@ -3734,8 +3615,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "idithuun_horn_ring": {
       "id": "idithuun_horn_ring",
@@ -3761,8 +3641,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "nosorog_sculpture": {
       "id": "nosorog_sculpture",
@@ -3792,8 +3671,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "dayguard_shield": {
       "id": "dayguard_shield",
@@ -3823,8 +3701,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "stormguard_gerege": {
       "id": "stormguard_gerege",
@@ -3854,8 +3731,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "kilaya": {
       "id": "kilaya",
@@ -3881,8 +3757,7 @@
           "collector": "Museum",
           "collection": "Dragonkin I"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "vazara": {
       "id": "vazara",
@@ -3912,8 +3787,7 @@
           "collector": "Museum",
           "collection": "Dragonkin I"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "ourg_megahitter": {
       "id": "ourg_megahitter",
@@ -3947,8 +3821,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "ourg_tower_goblin_cower_shield": {
       "id": "ourg_tower_goblin_cower_shield",
@@ -3982,8 +3855,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "garagorshuun_anchor": {
       "id": "garagorshuun_anchor",
@@ -4013,8 +3885,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "golem_heart": {
       "id": "golem_heart",
@@ -4048,8 +3919,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "golem_instruction": {
       "id": "golem_instruction",
@@ -4075,8 +3945,7 @@
           "collector": "Museum",
           "collection": "Armadylean II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "hellfire_haladie": {
       "id": "hellfire_haladie",
@@ -4106,8 +3975,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "hellfire_katar": {
       "id": "hellfire_katar",
@@ -4133,8 +4001,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "hellfire_zaghnal": {
       "id": "hellfire_zaghnal",
@@ -4164,8 +4031,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "death_mask": {
       "id": "death_mask",
@@ -4191,8 +4057,7 @@
           "collector": "Museum",
           "collection": "Dragonkin I"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "dragonkin_calendar": {
       "id": "dragonkin_calendar",
@@ -4222,8 +4087,7 @@
           "collector": "Museum",
           "collection": "Dragonkin I"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "dragonkin_staff": {
       "id": "dragonkin_staff",
@@ -4249,8 +4113,7 @@
           "collector": "Museum",
           "collection": "Dragonkin I"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "dorgeshuun_spear": {
       "id": "dorgeshuun_spear",
@@ -4276,8 +4139,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "forged_in_war_sculpture": {
       "id": "forged_in_war_sculpture",
@@ -4303,8 +4165,7 @@
           "collector": "Museum",
           "collection": "Bandosian II"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "kopis_dagger": {
       "id": "kopis_dagger",
@@ -4330,8 +4191,7 @@
           "collector": "Museum",
           "collection": "Saradominist III"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "xiphos_short_sword": {
       "id": "xiphos_short_sword",
@@ -4357,8 +4217,7 @@
           "collector": "Museum",
           "collection": "Saradominist III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "smoke_cloud_spell_scroll": {
       "id": "smoke_cloud_spell_scroll",
@@ -4388,8 +4247,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "vigorem_vial": {
       "id": "vigorem_vial",
@@ -4415,8 +4273,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "dragon_scalpel": {
       "id": "dragon_scalpel",
@@ -4442,8 +4299,7 @@
           "collector": "Museum",
           "collection": "Dragonkin II"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "protective_goggles": {
       "id": "protective_goggles",
@@ -4469,8 +4325,7 @@
           "collector": "Museum",
           "collection": "Dragonkin II"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "dragon_burner": {
       "id": "dragon_burner",
@@ -4496,8 +4351,7 @@
           "collector": "Museum",
           "collection": "Dragonkin II"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "orthenglass_flask": {
       "id": "orthenglass_flask",
@@ -4523,8 +4377,7 @@
           "collector": "Museum",
           "collection": "Dragonkin II"
         }
-      ],
-      "icon_width": 20
+      ]
     },
     "blackfire_lance": {
       "id": "blackfire_lance",
@@ -4550,8 +4403,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "nightguard_shield": {
       "id": "nightguard_shield",
@@ -4581,8 +4433,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "projection_attuner": {
       "id": "projection_attuner",
@@ -4612,8 +4463,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VII"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "golden_projection_needle": {
       "id": "golden_projection_needle",
@@ -4639,8 +4489,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VII"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "huzamogaarb_chaos_crown": {
       "id": "huzamogaarb_chaos_crown",
@@ -4670,8 +4519,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "saragorgak_star_crown": {
       "id": "saragorgak_star_crown",
@@ -4701,8 +4549,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "possession_metal_sculpture": {
       "id": "possession_metal_sculpture",
@@ -4732,8 +4579,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 19
+      ]
     },
     "trishula": {
       "id": "trishula",
@@ -4763,8 +4609,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "tsutsaroth_piercing": {
       "id": "tsutsaroth_piercing",
@@ -4794,8 +4639,7 @@
           "collector": "Museum",
           "collection": "Zamorakian III"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "hallowed_be_the_everlight_painting": {
       "id": "hallowed_be_the_everlight_painting",
@@ -4829,8 +4673,7 @@
           "collector": "Museum",
           "collection": "Saradominist IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "the_lord_of_light_painting": {
       "id": "the_lord_of_light_painting",
@@ -4864,8 +4707,7 @@
           "collector": "Museum",
           "collection": "Saradominist IV"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "the_pride_of_padosan_painting": {
       "id": "the_pride_of_padosan_painting",
@@ -4899,8 +4741,7 @@
           "collector": "Museum",
           "collection": "Saradominist IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "meditation_pipe": {
       "id": "meditation_pipe",
@@ -4926,8 +4767,7 @@
           "collector": "Museum",
           "collection": "Dragonkin III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "personal_totem": {
       "id": "personal_totem",
@@ -4957,8 +4797,7 @@
           "collector": "Museum",
           "collection": "Dragonkin III"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "singing_bowl": {
       "id": "singing_bowl",
@@ -4984,8 +4823,7 @@
           "collector": "Museum",
           "collection": "Dragonkin III"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "ancient_magic_tablet": {
       "id": "ancient_magic_tablet",
@@ -5011,8 +4849,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "animate_dead_spell_scroll": {
       "id": "animate_dead_spell_scroll",
@@ -5042,8 +4879,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "portable_phylactery": {
       "id": "portable_phylactery",
@@ -5073,8 +4909,7 @@
           "collector": "Museum",
           "collection": "Zarosian III"
         }
-      ],
-      "icon_width": 22
+      ]
     },
     "comfort_gatestone": {
       "id": "comfort_gatestone",
@@ -5104,8 +4939,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VII"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "halaks_cube": {
       "id": "halaks_cube",
@@ -5165,8 +4999,7 @@
           "collector": "Museum",
           "collection": "Dragonkin III"
         }
-      ],
-      "icon_width": 22
+      ]
     },
     "master_control": {
       "id": "master_control",
@@ -5196,8 +5029,7 @@
           "collector": "Museum",
           "collection": "Dragonkin III"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "the_enlightened_soul_scroll": {
       "id": "the_enlightened_soul_scroll",
@@ -5223,8 +5055,7 @@
           "collector": "Museum",
           "collection": "Saradominist IV"
         }
-      ],
-      "icon_width": 31
+      ]
     },
     "the_eudoxian_elements_tablet": {
       "id": "the_eudoxian_elements_tablet",
@@ -5250,8 +5081,7 @@
           "collector": "Museum",
           "collection": "Saradominist IV"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "drogokishuun_hook_sword": {
       "id": "drogokishuun_hook_sword",
@@ -5281,8 +5111,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "hobgoblin_mansticker": {
       "id": "hobgoblin_mansticker",
@@ -5308,8 +5137,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "chaos_elemental_trophy": {
       "id": "chaos_elemental_trophy",
@@ -5339,8 +5167,7 @@
           "collector": "Museum",
           "collection": "Zamorakian IV"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "virius_trophy": {
       "id": "virius_trophy",
@@ -5370,8 +5197,7 @@
           "collector": "Museum",
           "collection": "Zamorakian IV"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "flat_cap": {
       "id": "flat_cap",
@@ -5397,8 +5223,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "night_owl_flight_goggles": {
       "id": "night_owl_flight_goggles",
@@ -5428,8 +5253,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "prototype_godbow": {
       "id": "prototype_godbow",
@@ -5459,8 +5283,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "prototype_godstaff": {
       "id": "prototype_godstaff",
@@ -5490,8 +5313,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "prototype_godsword": {
       "id": "prototype_godsword",
@@ -5521,8 +5343,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "xolo_hard_hat": {
       "id": "xolo_hard_hat",
@@ -5548,8 +5369,7 @@
           "collector": "Museum",
           "collection": "Dragonkin IV"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "xolo_pickaxe": {
       "id": "xolo_pickaxe",
@@ -5579,8 +5399,7 @@
           "collector": "Museum",
           "collection": "Dragonkin IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "portable_portal_generator": {
       "id": "portable_portal_generator",
@@ -5610,8 +5429,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VII"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "warped_trinket": {
       "id": "warped_trinket",
@@ -5645,8 +5463,7 @@
           "collector": "Museum",
           "collection": "Dragonkin VII"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "praetorian_hood": {
       "id": "praetorian_hood",
@@ -5680,8 +5497,7 @@
           "collector": "Museum",
           "collection": "Zarosian IV"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "praetorian_robes": {
       "id": "praetorian_robes",
@@ -5715,8 +5531,7 @@
           "collector": "Museum",
           "collection": "Zarosian IV"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "praetorian_staff": {
       "id": "praetorian_staff",
@@ -5750,8 +5565,7 @@
           "collector": "Museum",
           "collection": "Zarosian IV"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "kal_i_kra_chieftain_crown": {
       "id": "kal_i_kra_chieftain_crown",
@@ -5777,8 +5591,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 22
+      ]
     },
     "kal_i_kra_mace": {
       "id": "kal_i_kra_mace",
@@ -5808,8 +5621,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 26
+      ]
     },
     "kal_i_kra_warhorn": {
       "id": "kal_i_kra_warhorn",
@@ -5839,8 +5651,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "spear_of_annihilation": {
       "id": "spear_of_annihilation",
@@ -5882,8 +5693,7 @@
           "collector": "Museum",
           "collection": "Zamorakian IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "tsutsaroth_pauldron": {
       "id": "tsutsaroth_pauldron",
@@ -5913,8 +5723,7 @@
           "collector": "Museum",
           "collection": "Zamorakian IV"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "tsutsaroth_urumi": {
       "id": "tsutsaroth_urumi",
@@ -5944,8 +5753,7 @@
           "collector": "Museum",
           "collection": "Zamorakian IV"
         }
-      ],
-      "icon_width": 30
+      ]
     },
     "doru_spear": {
       "id": "doru_spear",
@@ -5971,8 +5779,7 @@
           "collector": "Museum",
           "collection": "Saradominist IV"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "kontos_lance": {
       "id": "kontos_lance",
@@ -5998,8 +5805,7 @@
           "collector": "Museum",
           "collection": "Saradominist IV"
         }
-      ],
-      "icon_width": 27
+      ]
     },
     "chuluu_stone": {
       "id": "chuluu_stone",
@@ -6033,8 +5839,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 19
+      ]
     },
     "quintessence_counter": {
       "id": "quintessence_counter",
@@ -6064,8 +5869,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "spherical_astrolabe": {
       "id": "spherical_astrolabe",
@@ -6095,8 +5899,7 @@
           "collector": "Museum",
           "collection": "Armadylean III"
         }
-      ],
-      "icon_width": 24
+      ]
     },
     "ancient_globe": {
       "id": "ancient_globe",
@@ -6126,8 +5929,7 @@
           "collector": "Museum",
           "collection": "Zarosian IV"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "battle_plans": {
       "id": "battle_plans",
@@ -6157,8 +5959,7 @@
           "collector": "Museum",
           "collection": "Zarosian IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "prima_legio_painting": {
       "id": "prima_legio_painting",
@@ -6192,8 +5993,7 @@
           "collector": "Museum",
           "collection": "Zarosian IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "da_boss_man_sculpture": {
       "id": "da_boss_man_sculpture",
@@ -6223,8 +6023,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 25
+      ]
     },
     "horogothgar_cooking_pot": {
       "id": "horogothgar_cooking_pot",
@@ -6254,8 +6053,7 @@
           "collector": "Museum",
           "collection": "Bandosian III"
         }
-      ],
-      "icon_width": 23
+      ]
     },
     "xolo_shield": {
       "id": "xolo_shield",
@@ -6285,8 +6083,7 @@
           "collector": "Museum",
           "collection": "Dragonkin IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "xolo_spear": {
       "id": "xolo_spear",
@@ -6312,8 +6109,7 @@
           "collector": "Museum",
           "collection": "Dragonkin IV"
         }
-      ],
-      "icon_width": 29
+      ]
     },
     "gold_dish": {
       "id": "gold_dish",
@@ -6339,8 +6135,7 @@
           "collector": "Museum",
           "collection": "Dragonkin IV"
         }
-      ],
-      "icon_width": 28
+      ]
     },
     "raksha_idol": {
       "id": "raksha_idol",
@@ -6370,8 +6165,7 @@
           "collector": "Museum",
           "collection": "Dragonkin IV"
         }
-      ],
-      "icon_width": 24
+      ]
     }
   }
 }
