@@ -15,7 +15,7 @@ async function loadArtefactData() {
     "https://sleepy-meh-alt-1.github.io/Archealogy-research-tracker/data/artefacts.json"
     + "?v=" + Date.now(); // cache buster
 
-  const res = await fetch(url);
+  res = await fetch(url);
   if (!res.ok) throw new Error("Failed to load artefacts.json");
 
   artefactData = await res.json();
@@ -220,11 +220,29 @@ function scan() {
 
   // Convert artefact map -> array once
   const artefacts = Object.values(artefactData.artefacts);
-  console.log(artefacts[0].icon_damaged_base64)
-  console.log(artefacts[0].icon_width)
-
   for (const slot of slots) {
     let found = null;
+
+    for (const mat of materialData) {
+      if (!mat.icon || !mat.width) continue;
+
+      const matchArr = JSON.parse(
+        alt1.bindFindSubImg(
+          rsBind,
+          mat.icon,
+          mat.width,
+          slot.x,
+          slot.y,
+          cellW,
+          cellH
+        )
+      );
+
+      if (Array.isArray(matchArr) && matchArr.length > 0) {
+        found = art;
+        break;
+      }
+    }
 
     for (const art of artefacts) {
       if (!art.icon_damaged_base64 || !art.icon_width) continue;
