@@ -11,13 +11,28 @@ async function init() {
 }
 
 async function loadArtefactData() {
-  const res = await fetch(
-    "https://sleepy-meh-alt-1.github.io/Archealogy-research-tracker/data/artefacts.json",
-    { cache: "no-store" }
-  );
+  url =
+    "https://sleepy-meh-alt-1.github.io/Archealogy-research-tracker/data/artefacts.json"
+    + "?v=" + Date.now(); // cache buster
+
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Failed to load artefacts.json");
 
   artefactData = await res.json();
-  console.log("Artefacts loaded:", Object.keys(artefactData.artefacts));
+  console.log("Artefacts loaded:", Object.keys(artefactData.artefacts).length);
+  console.log(Object.values(artefactData.artefacts)[0]);
+
+    url =
+    "https://sleepy-meh-alt-1.github.io/Archealogy-research-tracker/data/materials.json"
+    + "?v=" + Date.now(); // cache buster
+
+  res = await fetch(url);
+  if (!res.ok) throw new Error("Failed to load artefacts.json");
+
+  materialData = await res.json();
+  console.log("Artefacts loaded:", Object.keys(materialData).length);
+  console.log(Object.values(materialData)[0]);
+
 }
 
 window.addEventListener("DOMContentLoaded", init);
@@ -205,18 +220,20 @@ function scan() {
 
   // Convert artefact map -> array once
   const artefacts = Object.values(artefactData.artefacts);
+  console.log(artefacts[0].icon_damaged_base64)
+  console.log(artefacts[0].icon_width)
 
   for (const slot of slots) {
     let found = null;
 
     for (const art of artefacts) {
-      if (!art.icon_damaged_base64) continue;
+      if (!art.icon_damaged_base64 || !art.icon_width) continue;
 
       const matchArr = JSON.parse(
         alt1.bindFindSubImg(
           rsBind,
           art.icon_damaged_base64,
-          art.width ?? 28,   // fallback width if missing
+          art.icon_width,
           slot.x,
           slot.y,
           cellW,
