@@ -37,7 +37,7 @@ async function loadArtefactData() {
   materialBank = {};
 
     for (const m of materialData) {
-      materialBank[m.name] = {
+      materialBank[m.name.toLowerCase()] = {
         name: m.name,
         owned: 0,
         needed: 0,
@@ -157,6 +157,86 @@ function compareWithMaterialBank(materialsNeeded, materialBank) {
   });
 
   return comparison;
+}
+
+function computeMissingAndSurplus() {
+  for (const m of Object.values(materialBank)) {
+    const owned = Number(m.owned) || 0;
+    const needed = Number(m.needed) || 0;
+    m.owned = owned;
+    m.needed = needed;
+    m.missing = Math.max(needed - owned, 0);
+    m.surplus = Math.max(owned - needed, 0);
+  }
+}
+
+function openMissingModal() {
+  const modal = document.getElementById("missingModal");
+  modal.style.display = "block";
+}
+
+function closeMissingModal() {
+  const modal = document.getElementById("missingModal");
+  modal.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("missingModal");
+  const closeBtn = document.getElementById("closeMissingBtn");
+
+  if (closeBtn) closeBtn.addEventListener("click", closeMissingModal);
+
+  // click outside closes
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeMissingModal();
+    });
+  }
+});
+
+function renderMissingModal() {
+  const list = document.getElementById("missingList");
+  if (!list) return;
+
+  computeMissingAndSurplus();
+
+  const missing = Object.values(materialBank)
+    .filter(m => (Number(m.missing) || 0) > 0)
+    .sort((a, b) => b.missing - a.missing || String(a.name).localeCompare(String(b.name)));
+
+  if (!missing.length) {
+    list.innerHTML = `<p>You're good — no missing materials for the scanned artefacts.</p>`;
+    return;
+  }
+
+  const totalMissing = missing.reduce((sum, m) => sum + (Number(m.missing) || 0), 0);
+
+  list.innerHTML = `
+    <div style="margin-bottom:6px; font-size:12px; opacity:.9;">
+      <b>Missing lines:</b> ${missing.length} &nbsp; • &nbsp; <b>Total missing:</b> ${totalMissing}
+    </div>
+
+    <table style="width:100%; border-collapse:collapse; font-size:12px;">
+      <thead>
+        <tr>
+          <th style="color:#ffd700; text-align:left; border-bottom:1px solid #222; padding:4px 6px;">Material</th>
+          <th style="color:#ffd700; text-align:right; border-bottom:1px solid #222; padding:4px 6px;">Owned</th>
+          <th style="color:#ffd700; text-align:right; border-bottom:1px solid #222; padding:4px 6px;">Needed</th>
+          <th style="color:#ffd700; text-align:right; border-bottom:1px solid #222; padding:4px 6px;">Missing</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${missing.map(m => `
+          <tr>
+            <td style="border-bottom:1px solid #222; padding:4px 6px;">${escapeHtml(m.name)}</td>
+            <td style="border-bottom:1px solid #222; padding:4px 6px; text-align:right;">${m.owned}</td>
+            <td style="border-bottom:1px solid #222; padding:4px 6px; text-align:right;">${m.needed}</td>
+            <td style="border-bottom:1px solid #222; padding:4px 6px; text-align:right;"><b>${m.missing}</b></td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
 }
 
 
@@ -373,8 +453,8 @@ function scanBank() {
   // TODO: replace with your real grid (you currently have 1x2 for testing)
   const slots = [];
   let index = 0;
-  for (let row = 0; row < 1; row++) {
-    for (let col = 0; col < 2; col++) {
+  for (let row = 0; row < 10; row++) {
+    for (let col = 0; col < 10; col++) {
       slots.push({ index, x: baseX + col * cellW, y: baseY + row * cellH });
       index++;
     }
@@ -423,7 +503,9 @@ function scanBank() {
       if (!matName || perArtefact <= 0) continue;
 
       console.log(matName)
-      materialBank[matName].needed += perArtefact * qty;
+      console.log(materialBank[matName])
+      console.log(materialBank)
+      materialBank[matName.toLowerCase()].needed += perArtefact * qty;
     }
   }
 
@@ -431,6 +513,9 @@ function scanBank() {
 
   console.log("materialBank after scanBank:", materialBank);
   console.log("materials missing:", Object.values(materialBank).filter(m => m.missing > 0));
+  renderMissingModal();
+openMissingModal();
+
 }
 
 function scanMaterialBank() {
@@ -518,11 +603,7 @@ function scanMaterialBank() {
     alt1.overLayRect(0xFF00FF00, slot.x, slot.y, cellW, cellH, 1500, 1);
 
     const qty = readStackAt(slot.x, slot.y,cellW, cellH);
-    console.log(found.name)
-
-    console.log(qty)
-    console.log(!materialBank[found.name])
-    if (!materialBank[found.name]) {
+    if (!materialBank[found.name.toLowerCase()]) {
       materialBank[found.name] = {
         name: found.name,
         qty: 0
@@ -530,11 +611,17 @@ function scanMaterialBank() {
     }
 
 
-    materialBank[found.name].owned = Number(qty) || 0;
+    materialBank[found.name.toLowerCase()].owned = Number(qty) || 0;
 
-    console.log(materialBank)
 
   }
+      console.log(materialBank)
+  finalizeMaterialBank();
+
+  console.log("materialBank after scanBank:", materialBank);
+  console.log("materials missing:", Object.values(materialBank).filter(m => m.missing > 0));
+  renderMissingModal();
+openMissingModal();
 }
 // -------------------------
 // History modal

@@ -151,6 +151,19 @@
 
       <!-- History -->
 
+      <!-- Missing materials modal -->
+      <div id="missingModal" style="display:none; position:absolute; inset:0; background:rgba(0,0,0,.65); z-index:99999;">
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+                    width:92%; max-width:650px; max-height:80%; overflow:auto;
+                    background:#111; color:#ddd; border:1px solid #444; padding:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <h3 style="margin:0; font-size:14px;">Missing materials</h3>
+            <button id="closeMissingBtn">✕</button>
+          </div>
+          <div id="missingList"></div>
+        </div>
+      </div>
+
       <!-- Modal -->
       <div id="historyModal" class="modal hidden">
         <div class="modalContent">
