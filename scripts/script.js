@@ -38,6 +38,7 @@ async function loadArtefactData() {
 window.addEventListener("DOMContentLoaded", init);
 
 
+
 // -------------------------
 // Variables
 // -------------------------
@@ -239,12 +240,14 @@ function scan() {
       );
 
       if (Array.isArray(matchArr) && matchArr.length > 0) {
-        found = art;
+        found = mat;
         break;
       }
     }
 
     for (const art of artefacts) {
+      console.log(art)
+
       if (!art.icon_damaged_base64 || !art.icon_width) continue;
 
       const matchArr = JSON.parse(
@@ -399,7 +402,6 @@ let scanTetraValue = 0;
       const name = it.item;
       const cat = it.category;
       const tetra = Number(it.tetraWorth) || 0;
-      console.log(tetra)
         scanTetraValue += tetra;
 
       if (!stats.itemStats[name]) {
@@ -429,7 +431,6 @@ let scanTetraValue = 0;
     }
 
             totalTetraValue += scanTetraValue;
-    console.log(totalTetraValue)
 
     if (scanMaterialSlots > 0) {
       materialsPerSlotSum += (scanMaterials / scanMaterialSlots);
