@@ -1,0 +1,117 @@
+{
+  "version": "1.0",
+  "researchers": [
+    { "id": "jimmy", "name": "Jimmy", "tier": "intern", "icon_url": "jimmy.png", "stats": { "speed_buff_percent": 0, "cost_modifier_percent": 0 }, "perk": null },
+    { "id": "scarlet", "name": "Scarlet", "tier": "intern", "icon_url": "scarlet.png", "stats": { "speed_buff_percent": 1, "cost_modifier_percent": 1 }, "perk": null },
+    { "id": "katarina", "name": "Katarina", "tier": "intern", "icon_url": "katarina.png", "stats": { "speed_buff_percent": 1, "cost_modifier_percent": 0 }, "perk": null },
+    { "id": "dorian", "name": "Dorian", "tier": "intern", "icon_url": "dorian.png", "stats": { "speed_buff_percent": 1, "cost_modifier_percent": 0 }, "perk": null },
+    { "id": "eduardo", "name": "Eduardo", "tier": "intern", "icon_url": "eduardo.png", "stats": { "speed_buff_percent": 1, "cost_modifier_percent": 0 }, "perk": null },
+
+    { "id": "alpheus", "name": "Alpheus", "tier": "assistant", "icon_url": "alpheus.png", "stats": { "speed_buff_percent": 2, "cost_modifier_percent": 3 }, "perk": null },
+    { "id": "eliza", "name": "Eliza", "tier": "assistant", "icon_url": "eliza.png", "stats": { "speed_buff_percent": 2, "cost_modifier_percent": 3 }, "perk": null },
+
+    { "id": "drew", "name": "Drew", "tier": "associate", "icon_url": "drew.png", "stats": { "speed_buff_percent": 4, "cost_modifier_percent": 6 }, "perk": null },
+    { "id": "helen", "name": "Helen", "tier": "associate", "icon_url": "helen.png", "stats": { "speed_buff_percent": 4, "cost_modifier_percent": 6 }, "perk": null },
+    { "id": "easty", "name": "Easty", "tier": "associate", "icon_url": "easty.png", "stats": { "speed_buff_percent": 4, "cost_modifier_percent": 6 }, "perk": null },
+
+    { "id": "simon_templeton", "name": "Simon Templeton", "tier": "professor", "icon_url": "simon_templeton.png", "stats": { "speed_buff_percent": 6, "cost_modifier_percent": 9 }, "perk": null },
+    { "id": "anna_jones", "name": "Anna Jones", "tier": "professor", "icon_url": "anna_jones.png", "stats": { "speed_buff_percent": 6, "cost_modifier_percent": 9 }, "perk": null },
+    {
+      "id": "asgarnia_smith",
+      "name": "Asgarnia Smith",
+      "tier": "professor",
+      "icon_url": "asgarnia_smith.png",
+      "stats": { "speed_buff_percent": 6, "cost_modifier_percent": 9 },
+      "perk": {
+        "name": null,
+        "description": "Increases the amount of materials found.",
+        "tags": ["materials"]
+      }
+    },
+    {
+      "id": "elissa_giovanni",
+      "name": "Elissa Giovanni",
+      "tier": "professor",
+      "icon_url": "elissa_giovanni.png",
+      "stats": { "speed_buff_percent": 6, "cost_modifier_percent": 9 },
+      "perk": {
+        "name": null,
+        "description": "Increases the chance of discovering artefacts.",
+        "tags": ["artefacts"]
+      }
+    },
+
+    {
+      "id": "dr_nabanik",
+      "name": "Dr Nabanik",
+      "tier": "consultant",
+      "icon_url": "dr_nabanik.png",
+      "stats": { "speed_buff_percent": 8, "cost_modifier_percent": 12 },
+      "perk": {
+        "name": "Third Age Expert",
+        "description": "Guarantees the discovery of an artefact (2+ hours only).",
+        "tags": ["artefacts", "guaranteed"]
+      }
+    },
+    {
+      "id": "vanescula",
+      "name": "Vanescula",
+      "tier": "consultant",
+      "icon_url": "vanescula.png",
+      "stats": { "speed_buff_percent": 12, "cost_modifier_percent": 12 },
+      "perk": {
+        "name": "Taskmistress",
+        "description": "Significantly increases research speed.",
+        "tags": ["speed"]
+      }
+    },
+    {
+      "id": "movario",
+      "name": "Movario",
+      "tier": "consultant",
+      "icon_url": "movario.png",
+      "stats": { "speed_buff_percent": 8, "cost_modifier_percent": 12 },
+      "perk": {
+        "name": "Extra Resourceful",
+        "description": "Greatly increases the amount of materials found.",
+        "tags": ["materials"]
+      }
+    },
+    {
+      "id": "geeka",
+      "name": "Gee'ka",
+      "tier": "consultant",
+      "icon_url": "geeka.png",
+      "stats": { "speed_buff_percent": 6, "cost_modifier_percent": 12 },
+      "perk": {
+        "name": "Meticulous",
+        "description": "10% increase to Archaeology XP.",
+        "tags": ["xp"]
+      }
+    },
+    {
+      "id": "zanik",
+      "name": "Zanik",
+      "tier": "consultant",
+      "icon_url": "zanik.png",
+      "stats": { "speed_buff_percent": 8, "cost_modifier_percent": 0 },
+      "perk": {
+        "name": "Zealous",
+        "description": "Happily works free of charge.",
+        "tags": ["free"]
+      }
+    },
+    {
+      "id": "mr_mordaut",
+      "name": "Mr Mordaut",
+      "tier": "consultant",
+      "icon_url": "mr_mordaut.png",
+      "stats": { "speed_buff_percent": 8, "cost_modifier_percent": 12 },
+      "perk": {
+        "name": "Treasure Hoarder",
+        "description": "Gives a chance to obtain a tetracompass piece (research time/24).",
+        "tags": ["tetracompass", "loot"]
+      }
+    }
+  ]
+}
