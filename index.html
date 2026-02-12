@@ -1,179 +1,545 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://runeapps.org/nis/nis.css"
-    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Archaeology Research Tracker</title>
+
+    <!-- NIS theme -->
+    <link rel="stylesheet" href="https://runeapps.org/nis/nis.css" />
+
+    <!-- Alt1 libs -->
     <script src="https://www.unpkg.com/alt1/dist/base/index.js"></script>
     <script src="https://www.unpkg.com/alt1/dist/ocr/index.js"></script>
     <script src="https://www.unpkg.com/alt1/dist/chatbox/index.js"></script>
+
+    <style>
+      /* =========================
+         Base / layout
+         ========================= */
+      html,
+      body {
+        height: 100%;
+      }
+
+      body.nis {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .scrollContainer {
+        height: 100%;
+        overflow-y: auto;
+        padding: 8px 8px 14px;
+        box-sizing: border-box;
+      }
+
+      .scrollContainer::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .scrollContainer::-webkit-scrollbar-track {
+        background: #0d0d0d;
+      }
+
+      .scrollContainer::-webkit-scrollbar-thumb {
+        background: #5a4a2a;
+        border-radius: 4px;
+      }
+
+      .scrollContainer::-webkit-scrollbar-thumb:hover {
+        background: #c8a94a;
+      }
+
+      /* =========================
+         Buttons
+         ========================= */
+      button {
+        background: linear-gradient(#2b2b2b, #1a1a1a);
+        border: 1px solid #5a4a2a;
+        color: #ffd700;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        padding: 6px 12px;
+        cursor: pointer;
+        border-radius: 3px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.6);
+        transition: all 0.12s ease;
+      }
+
+      button:hover {
+        background: linear-gradient(#353535, #202020);
+        border-color: #c8a94a;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 6px rgba(255, 215, 0, 0.35);
+      }
+
+      button:active {
+        background: linear-gradient(#181818, #262626);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+        transform: translateY(1px);
+      }
+
+      button.small {
+        font-size: 11px;
+        padding: 4px 8px;
+      }
+
+      button.danger {
+        color: #ffb0b0;
+        border-color: #7a2a2a;
+        animation: dangerPulse 0.8s infinite alternate;
+      }
+
+      @keyframes dangerPulse {
+        from {
+          box-shadow: 0 0 4px rgba(255, 80, 80, 0.4);
+        }
+        to {
+          box-shadow: 0 0 8px rgba(255, 80, 80, 0.8);
+        }
+      }
+
+      /* =========================
+         Cards / tables
+         ========================= */
+      .scanCard {
+        border: 1px solid #333;
+        padding: 8px;
+        margin-bottom: 10px;
+        background: #0b0b0b;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+        margin-top: 6px;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid #222;
+        padding: 4px 6px;
+        text-align: left;
+      }
+
+      th {
+        color: #ffd700;
+      }
+
+      .buttonRow {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      /* =========================
+         Team UI
+         ========================= */
+      .teamRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        border: 1px solid #222;
+        background: #0b0b0b;
+        padding: 6px 8px;
+        margin-bottom: 6px;
+      }
+
+      .teamLeft {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .teamIcon {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+      }
+
+      .teamName {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .teamMeta {
+        font-size: 12px;
+        opacity: 0.9;
+      }
+
+      /* Plain select so we don't need bootstrap */
+      #researcherSelect {
+        max-width: 320px;
+        background: #111;
+        color: #ddd;
+        border: 1px solid #333;
+        padding: 6px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        outline: none;
+      }
+
+      /* =========================
+         Toast
+         ========================= */
+      #toastContainer {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        pointer-events: none;
+      }
+
+      .toast {
+        background: linear-gradient(#2b2b2b, #1a1a1a);
+        border: 1px solid #c8a94a;
+        color: #ffd700;
+        padding: 8px 14px;
+        font-size: 12px;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 10px rgba(255, 215, 0, 0.25);
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: toastIn 0.18s ease forwards;
+      }
+
+      @keyframes toastIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================
+         Modals (shared)
+         ========================= */
+      .overlayModal {
+        display: none;
+        position: absolute; /* better for Alt1 */
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 99999;
+      }
+
+      .modalContent {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 92%;
+        max-width: 650px;
+        max-height: 80%;
+        overflow: auto;
+        background: #111;
+        color: #ddd;
+        border: 1px solid #444;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .modalHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        gap: 8px;
+      }
+
+      .modalHeader h3 {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      /* History cards header */
+      .scanCardTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .scanCardTop b {
+        font-size: 12px;
+      }
+
+      .scanCardTop .actions button {
+        margin-left: 6px;
+      }
+
+      /* =========================
+         Research planner buttons
+         ========================= */
+      .btnGroup {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+
+      .researchSiteBtn {
+        position: relative;
+        height: 60px;
+        width: 100%;
+        border: 1px solid #5a4a2a;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #ffd700;
+        font-weight: bold;
+        overflow: hidden;
+        padding: 6px 8px;
+        text-align: left;
+        border-radius: 4px;
+        transition: 0.15s ease;
+      }
+
+      .researchSiteBtn .siteOverlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+        z-index: 1;
+      }
+
+      .researchSiteBtn span {
+        position: relative;
+        z-index: 2;
+      }
+
+      .researchSiteBtn.active {
+        outline: 3px solid #c8a94a;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+      }
+
+      .researchDurationBtn.selected {
+        outline: 3px solid #c8a94a;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+      }
+
+      .researchSiteBtn[data-site="kharid-et"] {
+        background-image: url("images/sites/kharid_et.png");
+      }
+      .researchSiteBtn[data-site="infernal"] {
+        background-image: url("images/sites/infernal.png");
+      }
+      .researchSiteBtn[data-site="everlight"] {
+        background-image: url("images/sites/everlight.png");
+      }
+      .researchSiteBtn[data-site="senntisten"] {
+        background-image: url("images/sites/senntisten.png");
+      }
+      .researchSiteBtn[data-site="stormguard"] {
+        background-image: url("images/sites/stormguard.png");
+      }
+      .researchSiteBtn[data-site="daemonheim"] {
+        background-image: url("images/sites/daemonheim.png");
+      }
+      .researchSiteBtn[data-site="warforge"] {
+        background-image: url("images/sites/warforge.png");
+      }
+      .researchSiteBtn[data-site="orthen"] {
+        background-image: url("images/sites/orthen.png");
+      }
+
+      .researchSiteBtn.locked {
+        filter: grayscale(1);
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .researchSiteBtn .lockOverlay {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        z-index: 3;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        border: 1px solid #3a3a3a;
+        background: rgba(0, 0, 0, 0.65);
+        color: #ddd;
+      }
+
+      .researchSiteBtn.locked .siteOverlay {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.9));
+      }
+
+      .researchPickSummary {
+        font-size: 12px;
+        opacity: 0.9;
+        margin: 6px 0 10px;
+      }
+
+      .hint {
+        font-size: 12px;
+        opacity: 0.8;
+        margin-top: 6px;
+      }
+    </style>
   </head>
-  <style>
-    button {
-      background: linear-gradient(#2b2b2b, #1a1a1a);
-      border: 1px solid #5a4a2a;
-      color: #ffd700;     
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      padding: 6px 12px;
-      cursor: pointer;
-      border-radius: 3px;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        0 1px 2px rgba(0,0,0,0.6);
-      transition: all 0.12s ease;
-    }
-
-    button:hover {
-      background: linear-gradient(#353535, #202020);
-      border-color: #c8a94a;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.12),
-        0 0 6px rgba(255, 215, 0, 0.35);
-    }
-
-    button:active {
-      background: linear-gradient(#181818, #262626);
-      box-shadow:
-        inset 0 2px 4px rgba(0,0,0,0.8);
-      transform: translateY(1px);
-    }
-
-    button.small {
-      font-size: 11px;
-      padding: 4px 8px;
-    }
-
-    button.danger {
-      color: #ffb0b0;
-      border-color: #7a2a2a;
-      animation: dangerPulse 0.8s infinite alternate;
-    }
-
-    @keyframes dangerPulse {
-      from { box-shadow: 0 0 4px rgba(255,80,80,0.4); }
-      to   { box-shadow: 0 0 8px rgba(255,80,80,0.8); }
-    }
-    button.danger:hover {
-      border-color: #ff5555;
-      box-shadow: 0 0 6px rgba(255, 80, 80, 0.4);
-    }
-
-    /* Button groups spacing */
-    button + button {
-      margin-left: 6px;
-    }
-
-    #historyModal {
-      display: none;              /* default closed */
-      position: absolute;         /* more reliable than fixed in Alt1 */
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-      z-index: 99999;
-    }
-
-    #historyModal .modalContent{
-      position: absolute;
-      left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      width: 92%;
-      max-width: 650px;
-      max-height: 80%;
-      overflow: auto;
-      background: #111;
-      color: #ddd;               /* <-- make sure text is visible */
-      border: 1px solid #444;
-      padding: 10px;
-    }
-
-
-    .scanCard{
-      border: 1px solid #333;
-      padding: 8px;
-      margin-bottom: 10px;
-      background: #0b0b0b;
-    }
-
-    .scanCardTop{
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
-      gap: 8px;
-    }
-
-    .scanCardTop b { font-size: 12px; }
-    .scanCardTop .actions button { margin-left: 6px; }
-
-    table { width:100%; border-collapse: collapse; font-size: 12px; margin-top: 6px;}
-    th,td { border-bottom: 1px solid #222; padding: 4px 6px; text-align:left; }
-    th { color: #ffd700; }
-
-  </style>
 
   <body class="nis">
-    <div class="scanCard">
-      <h3>Next research</h3>
-      <div id="researchTimer">—</div>
-        <button id="startTimerBtn">Start 14h 38m timer</button>
+    <div class="scrollContainer">
+      <div id="toastContainer"></div>
+
+      <div class="scanCard">
+        <h3>Research tracking</h3>
+        <div id="researchTimer">—</div>
+
+        <div class="buttonRow">
+          <button id="scanBtn">Scan research</button>
+          <button id="historyBtn">History</button>
+          <button id="statsBtn">Analytics</button>
+        </div>
+
+        <div class="hint">
+          Scan the Research Rewards interface to record drops. View past records and basic analytics.
+        </div>
       </div>
 
-      <div>
-        <button id="scanBtn">Scan</button>
-        <button id="historyBtn">View history</button>
-        <button id="scanBankBtn">Scan bank</button>
-        <button id="scanMaterialBankBtn">Scan material bank</button>
+      <div class="scanCard">
+        <h3>Missing materials calculator</h3>
+
+        <div class="buttonRow">
+          <button id="scanBankBtn">Scan bank</button>
+          <button id="scanMaterialBankBtn">Scan material bank</button>
+          <button id="missingBtn">Missing materials</button>
+        </div>
+
+        <div class="hint">
+          Scans the first 10 rows of your Bank for artefacts (minimize bank width). Scans the Material Bank (top and
+          bottom) to calculate total restore requirements.
+        </div>
       </div>
 
-      <!-- Always visible -->
+      <div class="scanCard" id="researchPlannerCard">
+        <h3>Research type</h3>
+
+        <div class="hint" id="researchHint">
+          Pick a site and duration to estimate chronote cost and set your next timer.
+        </div>
+
+        <div style="margin-top: 8px">
+          <div id="researchSiteButtons" class="btnGroup"></div>
+        </div>
+
+        <div style="margin-top: 10px">
+          <div id="researchDurationButtons" class="btnGroup"></div>
+        </div>
+
+        <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px">
+          <div style="font-size: 12px; opacity: 0.85"><b>Archaeology level</b></div>
+          <input type="number" id="researchLevel" min="1" max="120" value="120" style="width: 80px" />
+        </div>
+
+        <div id="researchPickSummary" class="researchPickSummary">Selected: —</div>
+        <div><b>Chronote cost:</b> <span id="researchCostOut">—</span></div>
+        <div><b>Completion time:</b> <span id="researchTimeOut">—</span></div>
+        <div><b>Experience:</b> <span id="researchXpOut">—</span></div>
+
+        <div style="margin-top: 10px; display: flex; gap: 8px">
+          <button id="applyResearchTimerBtn">Start selected research timer</button>
+        </div>
+      </div>
+
+      <div class="scanCard">
+        <h3>Research team</h3>
+
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
+          <select id="researcherSelect">
+            <!-- options injected by JS -->
+          </select>
+
+          <button id="addResearcherBtn" class="small">Add</button>
+          <button id="clearTeamBtn" class="small danger">Clear</button>
+
+          <div style="margin-left: auto; font-size: 12px; opacity: 0.9">
+            Selected: <span id="teamCount">0</span>/5
+          </div>
+        </div>
+
+        <div id="teamSummary" style="margin-top: 10px"></div>
+        <div id="teamMembers" style="margin-top: 10px"></div>
+      </div>
+
+      <!-- Keep if JS still references it, but hidden by JS -->
       <div id="averages"></div>
+    </div>
 
-      <!-- History -->
-
-      <!-- Missing materials modal -->
-      <div id="missingModal" style="display:none; position:absolute; inset:0; background:rgba(0,0,0,.65); z-index:99999;">
-        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-                    width:92%; max-width:650px; max-height:80%; overflow:auto;
-                    background:#111; color:#ddd; border:1px solid #444; padding:10px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <h3 style="margin:0; font-size:14px;">Missing materials</h3>
-            <button id="closeMissingBtn">✕</button>
-          </div>
-          <div id="missingList"></div>
+    <!-- Modals -->
+    <div id="historyModal" class="overlayModal">
+      <div class="modalContent">
+        <div class="modalHeader">
+          <h3>Scan history</h3>
+          <button id="closeHistoryBtn">✕</button>
         </div>
-      </div>
 
-      <!-- Modal -->
-      <div id="historyModal" class="modal hidden">
-        <div class="modalContent">
-          <div class="modalHeader">
-            <h3>Scan history</h3>
-            <button id="closeHistoryBtn">✕</button>
-          </div>
-          <div id="historyList"></div>
+        <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap">
+          <select id="historyFilterSite">
+            <option value="">All sites</option>
+          </select>
+
+          <select id="historyFilterDuration">
+            <option value="">All durations</option>
+            <option value="1">1h</option>
+            <option value="2">2h</option>
+            <option value="4">4h</option>
+            <option value="8">8h</option>
+            <option value="12">12h</option>
+            <option value="24">24h</option>
+          </select>
         </div>
+
+        <div id="historyList"></div>
       </div>
-    </body>
-  <script src="scripts/script.js"></script>
+    </div>
+
+    <div id="statsModal" class="overlayModal">
+      <div class="modalContent">
+        <div class="modalHeader">
+          <h3>Analytics</h3>
+          <button id="closeStatsBtn">✕</button>
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap">
+          <select id="statsFilterSite">
+            <option value="">All sites</option>
+          </select>
+
+          <select id="statsFilterDuration">
+            <option value="">All durations</option>
+            <option value="1">1h</option>
+            <option value="2">2h</option>
+            <option value="4">4h</option>
+            <option value="8">8h</option>
+            <option value="12">12h</option>
+            <option value="24">24h</option>
+          </select>
+        </div>
+
+        <div id="statsContent"></div>
+      </div>
+    </div>
+
+    <div id="missingModal" class="overlayModal">
+      <div class="modalContent">
+        <div class="modalHeader">
+          <h3>Missing materials</h3>
+          <button id="closeMissingBtn">✕</button>
+        </div>
+
+        <div id="missingList"></div>
+      </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
