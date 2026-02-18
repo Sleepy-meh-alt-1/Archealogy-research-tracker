@@ -40,6 +40,7 @@ let RESEARCHERS = [];
 let artefactData = null;
 let materialData = null;
 let materialBank = null;
+let lastGeUpdate = null
 
 /* =========================
    Team UI globals
@@ -101,8 +102,9 @@ async function loadAllData() {
 
   RESEARCHERS = researcherJson.researchers || [];
   artefactData = artefactJson;
-  materialData = materialJson;
+  materialData = materialJson.materials;
 
+  lastGeUpdate = materialJson.last_ge_update  
   materialBank = {};
   for (const m of materialData) {
     materialBank[m.name.toLowerCase()] = {
@@ -117,6 +119,7 @@ async function loadAllData() {
   console.log("Researchers loaded:", RESEARCHERS.length);
   console.log("Artefacts loaded:", Object.keys(artefactData.artefacts || {}).length);
   console.log("Materials loaded:", materialData.length);
+  console.log()
   console.log("Material bank initialized:", Object.keys(materialBank).length);
 }
 
@@ -367,6 +370,48 @@ function initStatsFilters() {
   durSel.onchange = refreshStats;
 }
 
+
+function getDisplayCostForHistory(rec) {
+  const siteId = rec?.research?.siteId;
+  const hours = Number(rec?.research?.hours);
+  const level = Number(rec?.research?.level);
+
+  // If we can't recompute, fall back to stored values
+  if (!siteId || !Number.isFinite(hours) || !Number.isFinite(level)) {
+    return {
+      base: rec?.research?.chronotesBase,
+      final: rec?.research?.chronotesFinal
+    };
+  }
+
+  const site = RESEARCH_SITES.find((s) => s.id === siteId);
+  if (!site) {
+    return {
+      base: rec?.research?.chronotesBase,
+      final: rec?.research?.chronotesFinal
+    };
+  }
+
+  // Try to use the team snapshot from that record (so old records stay accurate)
+  const prevTeamCost = TEAM_TOTAL_COSTMOD;
+  const prevCCTier = commandCentreTier;
+
+  try {
+    if (rec?.team && typeof rec.team.totalCostPct === "number") {
+      TEAM_TOTAL_COSTMOD = rec.team.totalCostPct; // researcher pct at that time
+    }
+    if (rec?.team && typeof rec.team.commandCentreTier === "number") {
+      commandCentreTier = rec.team.commandCentreTier; // CC tier at that time
+    }
+
+    const costs = computeChronoteCosts(level, site.rate, hours);
+    return { base: costs.baseAfterCC, final: costs.final };
+  } finally {
+    TEAM_TOTAL_COSTMOD = prevTeamCost;
+    commandCentreTier = prevCCTier;
+  }
+}
+
 function renderHistoryModal() {
   const list = document.getElementById("historyList");
   const history = loadHistory();
@@ -402,6 +447,11 @@ function renderHistoryModal() {
       const costLine = rec.research
         ? `${Number(rec.research.chronotesBase).toLocaleString()} (${Number(rec.research.chronotesFinal).toLocaleString()})`
         : "—";
+        /*
+const cost = rec.research ? getDisplayCostForHistory(rec) : null;
+const costLine = cost?.base != null && cost?.final != null
+  ? `${Number(cost.base).toLocaleString()} (${Number(cost.final).toLocaleString()})`
+  : "—";*/
 
       return `
       <div class="scanCard">
@@ -443,6 +493,7 @@ function renderHistoryModal() {
     `;
     })
     .join("");
+
 }
 
 function deleteRecordByTimestamp(timestamp) {
@@ -1044,11 +1095,44 @@ function renderSelectOptions(researchers) {
   }
 }
 
+// =========================
+// Chronote cost (single source of truth)
+// =========================
+// Tier 3, TEAM_TOTAL_COSTMOD=51, Warforge 24h level 120
+// rawBase: 15840
+// baseAfterCC: floor(15840 * 0.97) = 15364
+// final: floor(15840 * 1.51) = 23918
+function computeChronoteCosts(level, siteRate, hours) {
+  level = clampArchLevel(level);
+  const M = (level % 2 === 0) ? level : (level - 1);
+
+  const rawBase = siteRate * M * hours;
+
+  // Command Centre: tier 2+ = -3%
+  const ccPct = (Number(commandCentreTier) >= 2) ? -3 : 0;
+
+  // "Base" line shown in-game appears to be CC-only applied and floored
+  const baseAfterCC = Math.floor(rawBase * (1 + ccPct / 100)); // = floor(rawBase * 0.97)
+
+  // Final uses TOTAL modifier (researchers + command centre) applied to RAW base
+  const researcherPct = Number(TEAM_TOTAL_COSTMOD) || 0;       // e.g. 54
+  const totalPct = researcherPct + ccPct;                      // e.g. 54 + (-3) = 51
+  const final = Math.floor(rawBase * (1 + totalPct / 100));    // floor(15840 * 1.51) = 23918
+
+  return {
+    rawBase: Math.round(rawBase),
+    baseAfterCC,
+    final,
+    researcherPct,
+    ccPct,
+    totalPct
+  };
+}
+
 function computeTeamTotals(teamResearchers) {
   let totalSpeed = teamResearchers.reduce((s, r) => s + (r.stats?.speed_buff_percent ?? 0), 0);
   let totalCost = teamResearchers.reduce((s, r) => s + (r.stats?.cost_modifier_percent ?? 0), 0);
 
-  if (commandCentreTier >= 2) totalCost -= 3;
   if (commandCentreTier >= 3) totalSpeed += 3;
 
   const perks = teamResearchers.map((r) => r.perk).filter(Boolean);
@@ -1258,19 +1342,6 @@ function computeResearchXp(level, siteMultiplier, hours) {
   return perHour * hours; // no rounding
 }
 
-function computeChronoteCost(level, siteRate, hours) {
-  level = Math.max(40, Math.min(120, Number(level) || 40));
-  const M = (level % 2 === 0) ? level : (level - 1);
-
-  const base = siteRate * M * hours;
-
-  // Additive reductions
-  const totalReduction = Number(TEAM_TOTAL_COSTMOD) || 0;
-  const final = base * (1 + totalReduction / 100);
-
-  return Math.round(final);
-}
-
 function computeAdjustedDurationMs(hours) {
   const base = hours * 60 * 60 * 1000;
   const speed = Number(TEAM_TOTAL_SPEED) || 0;
@@ -1343,9 +1414,9 @@ function updateResearchUI() {
 
   pick.textContent = `Selected: ${site.name} • Duration: ${hours}h`;
 
-  // Chronotes
-  const cost = computeChronoteCost(level, site.rate, hours);
-  costOut.textContent = cost.toLocaleString();
+  // Chronotes (final cost)
+  const costs = computeChronoteCosts(level, site.rate, hours);
+  costOut.textContent = costs.final.toLocaleString();
 
   // Time
   const adjustedMs = computeAdjustedDurationMs(hours);
@@ -1356,24 +1427,6 @@ function updateResearchUI() {
     const xp = computeResearchXp(level, site.xpMultiplier, hours);
     xpOut.textContent = xp.toLocaleString();
   }
-}
-
-function computeBaseChronoteCost(level, siteRate, hours) {
-  level = clampArchLevel(level);
-  const M = (level % 2 === 0) ? level : (level - 1);
-  return Math.round(siteRate * M * hours);
-}
-
-function computeFinalChronoteCost(level, siteRate, hours) {
-  let cost = computeBaseChronoteCost(level, siteRate, hours);
-
-  // researcher cost modifiers (+/- %)
-  cost *= (1 - (Number(TEAM_TOTAL_COSTMOD) || 0) / 100);
-
-  // command centre tier 2+ discount (-3% chronotes)
-  if (commandCentreTier >= 2) cost *= 0.97;
-
-  return Math.round(cost);
 }
 
 function getTeamSnapshot() {
@@ -1395,8 +1448,7 @@ function getResearchSnapshot() {
   const site = getSelectedSite();
   const hours = Number(selectedHours) || 1;
 
-  const baseCost = computeBaseChronoteCost(level, site.rate, hours);
-  const finalCost = computeFinalChronoteCost(level, site.rate, hours);
+  const costs = computeChronoteCosts(level, site.rate, hours);
 
   const adjustedMs = computeAdjustedDurationMs(hours);
   const baseMs = hours * 60 * 60 * 1000;
@@ -1408,8 +1460,8 @@ function getResearchSnapshot() {
     level,
     durationMsBase: baseMs,
     durationMsAdjusted: adjustedMs,
-    chronotesBase: baseCost,
-    chronotesFinal: finalCost
+    chronotesBase: costs.baseAfterCC,   // matches in-game "base" line you reported
+    chronotesFinal: costs.final         // matches in-game total you reported
   };
 }
 
@@ -1512,6 +1564,153 @@ function initResearchPlannerUI() {
   updateResearchUI();
 }
 
+const STORAGE_KEY = "advance_time_last_cast";
+let lastCast = Number(localStorage.getItem(STORAGE_KEY)) || null;
+
+function setLastCast(v) {
+  lastCast = v;
+  if (v === null) localStorage.removeItem(STORAGE_KEY);
+  else localStorage.setItem(STORAGE_KEY, v);
+}
+
+function nextWednesdayResetUtc(t) {
+  const d = new Date(t);
+  const day = d.getUTCDay();
+  const daysUntilWed = (3 - day + 7) % 7;
+
+  const midnight = Date.UTC(
+    d.getUTCFullYear(),
+    d.getUTCMonth(),
+    d.getUTCDate(),
+    0,0,0,0
+  );
+
+  let candidate = midnight + daysUntilWed * 86400000;
+  if (t >= candidate) candidate += 7 * 86400000;
+  return candidate;
+}
+
+function readyAtUtc(lastCast) {
+  return nextWednesdayResetUtc(lastCast);
+}
+
+function msToDhms(ms) {
+  const s = Math.floor(ms/1000);
+  const d = Math.floor(s/86400);
+  const h = Math.floor((s%86400)/3600);
+  const m = Math.floor((s%3600)/60);
+  return `${d}d ${h}h ${m}m`;
+}
+
+function getLastCast() {
+  return Number(localStorage.getItem(STORAGE_KEY)) || null;
+}
+
+function setLastCastNow() {
+  localStorage.setItem(STORAGE_KEY, Date.now());
+}
+
+
+function updateAdvanceTime() {
+  const now = Date.now();
+  const btn = document.getElementById("markUsed");
+  const status = document.getElementById("status");
+  const timer = document.getElementById("timer");
+
+  if (!lastCast) {
+    status.textContent = "READY";
+    timer.textContent = "";
+    btn.textContent = "Used";
+    btn.classList.remove("danger");
+
+    return;
+  }
+
+  const readyAt = nextWednesdayResetUtc(lastCast);
+
+  if (now >= readyAt) {
+    setLastCast(null);
+    updateAdvanceTime();
+    return;
+  }
+
+  const remaining = readyAt - now;
+  const progress = 1 - remaining / (7*86400000);
+
+  status.textContent = "COOLDOWN";
+  timer.textContent = msToDhms(remaining);
+
+  btn.textContent = "Undo";
+  btn.classList.add("danger");
+}
+
+setInterval(updateAdvanceTime, 1000);
+updateAdvanceTime();
+
+document.getElementById("markUsed").onclick = () => {
+  if (!lastCast) {
+    // mark used now
+    setLastCast(Date.now());
+  } else {
+    // toggle OFF → reset to ready
+    setLastCast(null);
+  }
+  updateAdvanceTime();
+};
+
+async function fetchPrices() {
+
+  const res = await fetch("https://api.weirdgloop.org/exchange");
+  if (!res.ok) throw new Error(`Failed /exchange: HTTP ${res.status}`);
+  const info = await res.json();
+
+  console.log(info.rs)
+
+
+  console.log(lastGeUpdate)
+
+  
+  console.log("Fetching prices...");
+
+  // collect all ids
+  const ids = materialData.map(item => item.id).filter(Boolean);
+
+  if (!ids.length) {
+    console.log("No IDs found.");
+    return;
+  }
+
+  try {
+    const idString = ids.join("|");
+    const url = `https://api.weirdgloop.org/exchange/history/rs/latest?id=${idString}`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.error("API request failed:", response.status);
+      return;
+    }
+
+    const data = await response.json();
+
+    for (const item of materialData) {
+      const apiItem = data[item.id];
+
+      if (!apiItem) {
+        console.log("No price found for:", item.name);
+        item.price = null;
+        continue;
+      }
+
+      item.price = apiItem.price ?? null;
+    }
+
+    console.log("Updated materialData:");
+    console.log(materialData);
+
+  } catch (err) {
+    console.error("Fetch error:", err);
+  }
+}
 /* =========================
    Unified init
    ========================= */
@@ -1607,6 +1806,7 @@ async function initApp() {
   initResearchPlannerUI();
   initHistoryFilters();
   initStatsFilters();
+  fetchPrices()
 }
 
 window.addEventListener("DOMContentLoaded", initApp);

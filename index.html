@@ -383,163 +383,233 @@
         opacity: 0.8;
         margin-top: 6px;
       }
+/* =========================
+   Advance Time cooldown widget (compact)
+   ========================= */
+#advanceTimeWidget.inlineCooldown {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border: 1px solid #222;
+  background: #0b0b0b;
+  border-radius: 4px;
+}
+
+#advanceTimeWidget .iconWrap {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+}
+
+#advanceTimeWidget #spellIcon {
+  position: absolute;
+  inset: 0;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+#advanceTimeWidget #cooldownCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#advanceTimeWidget .text {
+  line-height: 1.05;
+  min-width: 62px; /* keeps row stable when timer changes */
+}
+
+#advanceTimeWidget #status {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffd700;
+}
+
+#advanceTimeWidget #timer {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+#advanceTimeWidget .smallBtn {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
     </style>
   </head>
 
-  <body class="nis">
-    <div class="scrollContainer">
-      <div id="toastContainer"></div>
+ <body class="nis">
+  <div class="scrollContainer">
+    <div id="toastContainer"></div>
 
-      <div class="scanCard">
-        <h3>Research tracking</h3>
-        <div id="researchTimer">—</div>
+    <!-- Research tracking -->
+    <div class="scanCard">
+      <h3>Research tracking</h3>
+      <div id="researchTimer">—</div>
 
-        <div class="buttonRow">
-          <button id="scanBtn">Scan research</button>
-          <button id="historyBtn">History</button>
-          <button id="statsBtn">Analytics</button>
-        </div>
+      <div class="buttonRow">
+        <button id="scanBtn">Scan research</button>
+        <button id="historyBtn">History</button>
+        <button id="statsBtn">Analytics</button>
+        <button id="applyResearchTimerBtn">Start research timer</button>
 
-        <div class="hint">
-          Scan the Research Rewards interface to record drops. View past records and basic analytics.
-        </div>
-      </div>
-
-      <div class="scanCard">
-        <h3>Missing materials calculator</h3>
-
-        <div class="buttonRow">
-          <button id="scanBankBtn">Scan bank</button>
-          <button id="scanMaterialBankBtn">Scan material bank</button>
-          <button id="missingBtn">Missing materials</button>
-        </div>
-
-        <div class="hint">
-          Scans the first 10 rows of your Bank for artefacts (minimize bank width). Scans the Material Bank (top and
-          bottom) to calculate total restore requirements.
-        </div>
-      </div>
-
-      <div class="scanCard" id="researchPlannerCard">
-        <h3>Research type</h3>
-
-        <div class="hint" id="researchHint">
-          Pick a site and duration to estimate chronote cost and set your next timer.
-        </div>
-
-        <div style="margin-top: 8px">
-          <div id="researchSiteButtons" class="btnGroup"></div>
-        </div>
-
-        <div style="margin-top: 10px">
-          <div id="researchDurationButtons" class="btnGroup"></div>
-        </div>
-
-        <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px">
-          <div style="font-size: 12px; opacity: 0.85"><b>Archaeology level</b></div>
-          <input type="number" id="researchLevel" min="1" max="120" value="120" style="width: 80px" />
-        </div>
-
-        <div id="researchPickSummary" class="researchPickSummary">Selected: —</div>
-        <div><b>Chronote cost:</b> <span id="researchCostOut">—</span></div>
-        <div><b>Completion time:</b> <span id="researchTimeOut">—</span></div>
-        <div><b>Experience:</b> <span id="researchXpOut">—</span></div>
-
-        <div style="margin-top: 10px; display: flex; gap: 8px">
-          <button id="applyResearchTimerBtn">Start selected research timer</button>
-        </div>
-      </div>
-
-      <div class="scanCard">
-        <h3>Research team</h3>
-
-        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
-          <select id="researcherSelect">
-            <!-- options injected by JS -->
-          </select>
-
-          <button id="addResearcherBtn" class="small">Add</button>
-          <button id="clearTeamBtn" class="small danger">Clear</button>
-
-          <div style="margin-left: auto; font-size: 12px; opacity: 0.9">
-            Selected: <span id="teamCount">0</span>/5
+        <div id="advanceTimeWidget" class="inlineCooldown">
+          <div class="iconWrap">
+            <canvas id="cooldownCanvas" width="32" height="32"></canvas>
+            <img src="images/advance_time.png" id="spellIcon" alt="Advance Time" />
           </div>
-        </div>
 
-        <div id="teamSummary" style="margin-top: 10px"></div>
-        <div id="teamMembers" style="margin-top: 10px"></div>
+          <div class="text">
+            <div id="status">READY</div>
+            <div id="timer"></div>
+          </div>
+
+          <button id="markUsed" class="smallBtn" title="Mark Advance Time as used">Used</button>
+        </div>
       </div>
 
-      <!-- Keep if JS still references it, but hidden by JS -->
-      <div id="averages"></div>
-    </div>
-
-    <!-- Modals -->
-    <div id="historyModal" class="overlayModal">
-      <div class="modalContent">
-        <div class="modalHeader">
-          <h3>Scan history</h3>
-          <button id="closeHistoryBtn">✕</button>
-        </div>
-
-        <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap">
-          <select id="historyFilterSite">
-            <option value="">All sites</option>
-          </select>
-
-          <select id="historyFilterDuration">
-            <option value="">All durations</option>
-            <option value="1">1h</option>
-            <option value="2">2h</option>
-            <option value="4">4h</option>
-            <option value="8">8h</option>
-            <option value="12">12h</option>
-            <option value="24">24h</option>
-          </select>
-        </div>
-
-        <div id="historyList"></div>
+      <div class="hint">
+        Scan the Research Rewards interface to record drops. View past records and basic analytics.
       </div>
     </div>
 
-    <div id="statsModal" class="overlayModal">
-      <div class="modalContent">
-        <div class="modalHeader">
-          <h3>Analytics</h3>
-          <button id="closeStatsBtn">✕</button>
-        </div>
+    <!-- Missing materials calculator -->
+    <div class="scanCard">
+      <h3>Missing materials calculator</h3>
 
-        <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap">
-          <select id="statsFilterSite">
-            <option value="">All sites</option>
-          </select>
+      <div class="buttonRow">
+        <button id="scanBankBtn">Scan bank</button>
+        <button id="scanMaterialBankBtn">Scan material bank</button>
+        <button id="missingBtn">Missing materials</button>
+      </div>
 
-          <select id="statsFilterDuration">
-            <option value="">All durations</option>
-            <option value="1">1h</option>
-            <option value="2">2h</option>
-            <option value="4">4h</option>
-            <option value="8">8h</option>
-            <option value="12">12h</option>
-            <option value="24">24h</option>
-          </select>
-        </div>
-
-        <div id="statsContent"></div>
+      <div class="hint">
+        Scans the first 10 rows of your Bank for artefacts (minimize bank width). Scans the Material Bank (top and
+        bottom) to calculate total restore requirements.
       </div>
     </div>
 
-    <div id="missingModal" class="overlayModal">
-      <div class="modalContent">
-        <div class="modalHeader">
-          <h3>Missing materials</h3>
-          <button id="closeMissingBtn">✕</button>
-        </div>
+    <!-- Research planner -->
+    <div class="scanCard" id="researchPlannerCard">
+      <h3>Research type</h3>
 
-        <div id="missingList"></div>
+      <div class="hint" id="researchHint">
+        Pick a site and duration to calculate chronote cost and set your next timer.
       </div>
+
+      <div style="margin-top: 8px">
+        <div id="researchSiteButtons" class="btnGroup"></div>
+      </div>
+
+      <div style="margin-top: 10px">
+        <div id="researchDurationButtons" class="btnGroup"></div>
+      </div>
+
+      <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px">
+        <div style="font-size: 12px; opacity: 0.85"><b>Archaeology level</b></div>
+        <input type="number" id="researchLevel" min="1" max="120" value="120" style="width: 80px" />
+      </div>
+
+      <div id="researchPickSummary" class="researchPickSummary">Selected: —</div>
+      <div><b>Chronote cost:</b> <span id="researchCostOut">—</span></div>
+      <div><b>Completion time:</b> <span id="researchTimeOut">—</span></div>
+      <div><b>Experience:</b> <span id="researchXpOut">—</span></div>
     </div>
 
-    <script src="scripts/script.js"></script>
-  </body>
-</html>
+    <!-- Research team -->
+    <div class="scanCard">
+      <h3>Research team</h3>
+
+      <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
+        <select id="researcherSelect">
+          <!-- options injected by JS -->
+        </select>
+
+        <button id="addResearcherBtn" class="small">Add</button>
+        <button id="clearTeamBtn" class="small danger">Clear</button>
+
+        <div style="margin-left: auto; font-size: 12px; opacity: 0.9">
+          Selected: <span id="teamCount">0</span>/5
+        </div>
+      </div>
+
+      <div id="teamSummary" style="margin-top: 10px"></div>
+      <div id="teamMembers" style="margin-top: 10px"></div>
+    </div>
+
+    <!-- Keep if JS still references it, but hidden by JS -->
+    <div id="averages"></div>
+  </div>
+
+  <!-- Modals -->
+  <div id="historyModal" class="overlayModal">
+    <div class="modalContent">
+      <div class="modalHeader">
+        <h3>Scan history</h3>
+        <button id="closeHistoryBtn">✕</button>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap">
+        <select id="historyFilterSite">
+          <option value="">All sites</option>
+        </select>
+
+        <select id="historyFilterDuration">
+          <option value="">All durations</option>
+          <option value="1">1h</option>
+          <option value="2">2h</option>
+          <option value="4">4h</option>
+          <option value="8">8h</option>
+          <option value="12">12h</option>
+          <option value="24">24h</option>
+        </select>
+      </div>
+
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+  <div id="statsModal" class="overlayModal">
+    <div class="modalContent">
+      <div class="modalHeader">
+        <h3>Analytics</h3>
+        <button id="closeStatsBtn">✕</button>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap">
+        <select id="statsFilterSite">
+          <option value="">All sites</option>
+        </select>
+
+        <select id="statsFilterDuration">
+          <option value="">All durations</option>
+          <option value="1">1h</option>
+          <option value="2">2h</option>
+          <option value="4">4h</option>
+          <option value="8">8h</option>
+          <option value="12">12h</option>
+          <option value="24">24h</option>
+        </select>
+      </div>
+
+      <div id="statsContent"></div>
+    </div>
+  </div>
+
+  <div id="missingModal" class="overlayModal">
+    <div class="modalContent">
+      <div class="modalHeader">
+        <h3>Missing materials</h3>
+        <button id="closeMissingBtn">✕</button>
+      </div>
+
+      <div id="missingList"></div>
+    </div>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
