@@ -919,7 +919,7 @@ function scanBank() {
 
   const slots = [];
   let index = 0;
-  for (let row = 0; row < 10; row++) {
+  for (let row = 0; row < 27; row++) {
     for (let col = 0; col < 10; col++) {
       slots.push({ index, x: baseX + col * cellW, y: baseY + row * cellH });
       index++;
@@ -946,7 +946,7 @@ function scanBank() {
 
     if (!found) continue;
 
-    alt1.overLayRect(0xff00ff00, slot.x, slot.y, cellW, cellH, 1500, 1);
+    alt1.overLayRect(0xff00ff00, slot.x, slot.y, cellW, cellH, 10000, 1);
 
     let qty = Number(readStackAt(slot.x, slot.y, cellW, cellH)) || 0;
     if (qty <= 0) qty = 1;
