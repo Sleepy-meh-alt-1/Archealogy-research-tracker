@@ -877,8 +877,9 @@ function scan() {
   }
 
   saveScan(results);
-  startResearchCooldown(Date.now());
-  refreshStats();
+  const adjustedMs = computeAdjustedDurationMs(selectedHours);
+  startResearchCooldown(Date.now(), adjustedMs);
+  showToast(`Started ${selectedHours}h research`);  refreshStats();
 
   if (isHistoryOpen()) renderHistoryModal();
 }
