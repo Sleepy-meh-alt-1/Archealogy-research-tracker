@@ -877,8 +877,8 @@ function scan() {
   }
 
   saveScan(results);
-  startResearchCooldown(Date.now());
-  refreshStats();
+  adjustedMs = computeAdjustedDurationMs(selectedHours);
+  startResearchCooldown(Date.now(), adjustedMs);  refreshStats();
 
   if (isHistoryOpen()) renderHistoryModal();
 }
